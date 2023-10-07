@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var amenityIds = {};
+  const amenityIds = {};
 
   function updateApiStatusClass(status) {
     if (status === 'OK') {
@@ -10,13 +10,13 @@ $(document).ready(function() {
   }
 
   $.get('http://0.0.0.0:5001/api/v1/status/', function(data) {
-    var status = data.status;
+    const status = data.status;
 
     updateApiStatusClass(status);
   });
 
   $('input[type="checkbox"]').on('change', function() {
-    var amenityId = $(this).data('id'); // Get Amenity ID from data-id attribute
+    const amenityId = $(this).data('id'); // Get Amenity ID from data-id attribute
 
     if ($(this).is(':checked')) {
       amenityIds[amenityId] = true;
@@ -24,9 +24,9 @@ $(document).ready(function() {
       delete amenityIds[amenityId];
     }
 
-    var amenitiesList = [];
-    for (var id in amenityIds) {
-      var amenityName = $('input[data-id="' + id + '"]').data('name');
+    const amenitiesList = [];
+    for (const id in amenityIds) {
+      const amenityName = $('input[data-id="' + id + '"]').data('name');
       amenitiesList.push(amenityName);
     }
 
