@@ -3,6 +3,7 @@
 Routes:
     /hbnb: HBnB home page.
 """
+import uuid
 from models import storage
 from flask import Flask
 from flask import render_template
@@ -16,8 +17,13 @@ def hbnb():
     states = storage.all("State")
     amenities = storage.all("Amenity")
     places = storage.all("Place")
-    return render_template("100-hbnb.html",
-                           states=states, amenities=amenities, places=places)
+
+    cache_id = str(uuid.uuid4())
+
+    # Pass the cached_id to the template
+    return render_template("0-hbnb.html",
+                           states=states, amenities=amenities, places=places,
+                           cache_id=cache_id)
 
 
 @app.teardown_appcontext
