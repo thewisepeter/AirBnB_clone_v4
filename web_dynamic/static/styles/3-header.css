@@ -12,3 +12,7 @@ header {
     position: absolute;
     left: 20px;
 }
+
+.available {
+    background-color: #ff545f;
+}
