@@ -16,3 +16,9 @@ header {
 .available {
     background-color: #ff545f;
 }
+
+#api_status {
+    background-color: #cccccc;
+    border-right: 30px;
+    border-radius: 40px;
+}
